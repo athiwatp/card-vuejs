@@ -1,8 +1,8 @@
 <template lang="html">
-  <div v-for="list in listOrder | orderBy '-vote' ">
+  <div v-for="list in listOrder | orderBy 'vote'">
    <img :src="list.url" width="200px" height="200px">
    <h3>{{list.name}} :  {{ list.price }} บาท</h3> <br>
-   <button @click="addVote($index)">Vote up </button> <h3> {{ list.vote }} Vote </h3>
+   <button @click="addVote(list.id)">Vote up </button> <h3> {{ list.vote }} Vote </h3>
    <hr>
  </div>
 </template>

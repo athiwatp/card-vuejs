@@ -17,7 +17,8 @@ export default {
           url: 'https://3.bp.blogspot.com/-u9QmBob0h3o/VtkSVOTRUvI/AAAAAAAAAmM/AouDAlu0bR8/s400/%25E0%25B8%259B%25E0%25B8%25B5%25E0%25B8%2581%25E0%25B9%2584%25E0%25B8%2581%25E0%25B9%2588%25E0%25B8%2597%25E0%25B8%25AD%25E0%25B8%2594%25E0%25B8%2599%25E0%25B9%2589%25E0%25B8%25B3%25E0%25B8%259B%25E0%25B8%25A5%25E0%25B8%25B2_Fried%2Bchicken%2Bwing%2Bsauce.jpg',
           name: 'ไก่ทอด',
           price: 0,
-          vote: 0
+          vote: 0,
+          id: Date.now()
         }
       ]
     }
@@ -32,12 +33,14 @@ export default {
         url: list.url,
         name: list.name,
         price: list.price,
-        vote: 0
+        vote: 0,
+        id: Date.now()
       }
       this.listOrder.push(data)
     },
-    addVote: function (index) {
-      console.log(index)
+    addVote: function (id) {
+      var index = this.listOrder.map(item => item.id).indexOf(id)
+      console.log('vote ' + index)
       this.listOrder[index].vote += 1
     }
   }
